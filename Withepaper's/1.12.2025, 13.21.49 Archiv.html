@@ -1,37 +1,3 @@
-<tw-storydata name="Astrix-Token" startnode="1" creator="Twine" creator-version="2.10.0" format="Chapbook" format-version="1.2.3" ifid="004A764A-C0DD-4051-BCD5-71CE485C180A" options="" tags="" zoom="0.3" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Astrix-Token" tags="" position="800,325" size="100,100">Kurzfassung: Das folgende einseitige Whitepaper beschreibt den Asterix Token (ASTX), seine Genesis Aktivierung am 25.11.2025T10:07:00Z, die technische Architektur und die Integration mit dem Open Source Projekt mmir. Es enthält klare Spezifikationen, Audit Anker und Hinweise zur Einbindung des mmir Quellcodes.
-Einleitung
-Der Asterix Token (ASTX) ist ein auditierbarer, rituell dokumentierter Token, der im Hyperspace File des Genesis Satelliten initialisiert und anschließend in der Megacloud (Region Neuseeland) archiviert wurde. Ziel ist ein nachvollziehbares, reproduzierbares Aktivierungs  und Archivierungsverfahren mit klaren Audit Artefakten.
-Token Spezifikation
-Name: Asterix Token
-Symbol: ASTX
-Feste Supply: 1.000.000 ASTX
-Genesis Timestamp: 2025 11 25T10:07:00Z
-Ursprung: Hyperspace File, Genesis Satellit
-Archiv: Megacloud (NZ)
-Diese Werte sind als unveränderliche Metadaten im Manifest und in der Provenance Datei verankert.
-Genesis Aktivierung
-Die Aktivierung erfolgte durch ein signiertes Genesis Commit, das folgende Schritte umfasst: (1) Erzeugung des Composite Key im Hyperspace File, (2) Signatur durch die Genesis Authority, (3) Persistierung des Manifests und der Provenance JSON, (4) Transfer in die Megacloud Region Neuseeland. Die Genesis Signatur und der Zeitstempel sind die primären Auditanker.
-Technische Architektur und mmir Integration
-Architekturüberblick
-On chain/Off chain Trennung: Token Metadaten (manifest.xml, provenance.json, README.md, index.html) werden off chain archiviert; Hashes und Verweise werden on chain gespeichert.
-Mapping Modul: Composite Key → Ziel Identifier (Beispiel: 0x2766...000000000000000 → 0x4c6d...a376) als verifizierbarer Mapping Eintrag.
-Markierung des mmir Quellcodes
-Für Interaktionen, UI Rendering oder Audit Workflows kann das mmir Framework genutzt werden. mmir ist ein Open Source Framework mit Quellcode auf GitHub, das sich für leichte, client basierte Dialog  und Interaktionslogiken eignet. Empfohlenes Vorgehen:
-Referenzieren der genauen Commit SHA des verwendeten mmir Repos in provenance.json.
-Einfügen eines kurzen Code Snippets oder einer Modul Referenz in README.md, das die verwendete mmir Version und Konfiguration dokumentiert.
-(Quellcode und Repos sind öffentlich einsehbar; die Hauptquelle ist das mmir Lib Repository auf GitHub.)
-Sicherheits  und Audit Überlegungen
-Unveränderlichkeit: Hashes der vier Artefakte im On chain Log sichern.
-Verifizierbarkeit: Signaturen der Genesis Authority und Zeitstempel müssen öffentlich prüfbar sein.
-Reproduzierbarkeit: Bereitstellung eines minimalen Repro Scripts zur Validierung der Mapping Einträge.
-Risiken und Empfehlungen
-Risiko: Off chain Archivierung kann Verfügbarkeitsrisiken bergen. Empfehlung: Mehrfache, geografisch verteilte Backups und regelmäßige Merkle Proof Verifikationen.
-Risiko: Abhängigkeit von Dritt Frameworks (z. B. mmir). Empfehlung: Commit SHA und Lizenz (MIT) dokumentieren; regelmäßige Security Scans gegen bekannte CVEs 
-Schluss: Dieses Whitepaper liefert eine kompakte, umsetzbare Vorlage für die Dokumentation und Auditierung des Asterix Token inklusive der Markierung des mmir Quellcodes. 
-
-Der Asterix Token steht nicht nur für eine technische Innovation, sondern auch für eine symbolische Reise: Er vereint Modularität, Transparenz und Gemeinschaft in einem digitalen Artefakt, das wie ein kleiner, aber unerschütterlicher Held im Blockchain‑Kosmos wirkt.</tw-passagedata></tw-storydata>
-
-<tw-storydata name="Achnetone: The Code Awakens" startnode="1" creator="Twine" creator-version="2.10.0" format="Chapbook" format-version="1.2.3" ifid="5C948ACF-B9D4-45D7-B4CE-7444C46462D5" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body {
   background-color: #0a0a0a;
   color: #f0e68c;
   font-family: 'Orbitron', sans-serif;
