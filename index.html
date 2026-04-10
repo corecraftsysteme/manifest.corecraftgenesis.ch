@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>GenesisArchive — CoreCraftGenesis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/portal.css">
+
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: #11151f;
+      padding: 1.4rem;
+      border-radius: 10px;
+      border: 1px solid #1f2633;
+      transition: 0.2s ease;
+    }
+    .card:hover {
+      border-color: #7fd4ff;
+      box-shadow: 0 0 12px #7fd4ff33;
+    }
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: .5rem;
+      font-size: 1.3rem;
+    }
+    .card p {
+      opacity: .85;
+      margin-bottom: 1rem;
+    }
+    .card a {
+      color: #7fd4ff;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="header"></div>
+<script>
+  fetch("/header.html")
+    .then(r => r.text())
+    .then(h => document.getElementById("header").innerHTML = h);
+</script>
+
+<div class="wrap">
+
+  <span class="tag">Chain2025</span>
+  <h1>GenesisArchive</h1>
+
+  <p>
+    Das GenesisArchive ist der kanonische Speicher aller audit‑sealed Artefakte
+    der CoreCraftGenesis‑Plattform.  
+    Poster, Manifeste, Echo‑Fragmente und narrative Kits werden hier
+    unveränderbar dokumentiert und modular verlinkt.
+  </p>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Echo‑Artefakte</h3>
+      <p>Audit‑sealed Fragmente aus den Echo‑Zyklen. Narrative, Poster, Loops.</p>
+      <a href="/genesisarchive/echo/">Öffnen →</a>
+    </div>
+
+    <div class="card">
+      <h3>Poster‑Galerie</h3>
+      <p>Visuelle Artefakte, Genesis‑Poster, Loop‑Remnants, Design‑Kits.</p>
+      <a href="/genesisarchive/poster/">Öffnen →</a>
+    </div>
+
+    <div class="card">
+      <h3>Manifeste</h3>
+      <p>Philosophische und technische Kerntexte der Genesis‑Plattform.</p>
+      <a href="/genesisarchive/manifeste/">Öffnen →</a>
+    </div>
+
+    <div class="card">
+      <h3>Plaintext‑Archive</h3>
+      <p>Unformatierte, audit‑fähige Rohtexte für Forschung und Dokumentation.</p>
+      <a href="/genesisarchive/plaintext/">Öffnen →</a>
+    </div>
+
+    <div class="card">
+      <h3>Design‑Kits</h3>
+      <p>UI‑Elemente, Typografie, Farbsets und modulare Genesis‑Designsysteme.</p>
+      <a href="/genesisarchive/design/">Öffnen →</a>
+    </div>
+
+    <div class="card">
+      <h3>Research & Meta</h3>
+      <p>Forschung, Wertfluss‑Modelle, Edge‑Computing, Audit‑Transparenz.</p>
+      <a href="/genesisarchive/research/">Öffnen →</a>
+    </div>
+
+  </div>
+
+  <h2 style="margin-top:3rem;">Audit‑Versiegelung</h2>
+  <p>
+    Jedes Artefakt im GenesisArchive ist mit einem deterministischen Hash,
+    Timestamp und Herkunfts‑Metadaten versehen.  
+    Dadurch bleibt der gesamte Archiv‑Kanon reproduzierbar, überprüfbar
+    und unveränderbar.
+  </p>
+
+</div>
+
+</body>
+</html>
