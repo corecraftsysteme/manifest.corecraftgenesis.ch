@@ -1,0 +1,205 @@
+/* ============================================================
+   manifest.corecraftgenesis.ch — Portal CSS
+   Basiert auf CoreCraft Genesis portal-core.css
+   ============================================================ */
+
+/* Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #0d0d0d;
+  color: #e6e6e6;
+  font-family: Arial, sans-serif;
+}
+
+a {
+  color: #8affc1;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Layout */
+.wrap {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  border-bottom: 1px solid rgba(0, 255, 200, 0.15);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title a {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #8affc1;
+  text-decoration: none;
+  text-shadow: 0 0 12px rgba(138, 255, 193, 0.35);
+}
+
+.header-title .subtitle {
+  font-size: 0.75rem;
+  color: #7fd4ff;
+  display: block;
+  margin-top: 2px;
+  letter-spacing: 0.04em;
+}
+
+.header-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 22px;
+}
+
+.header-nav a {
+  color: #d9d9d9;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.header-nav a:hover {
+  color: #8affc1;
+  text-shadow: 0 0 8px rgba(138, 255, 193, 0.35);
+  text-decoration: none;
+}
+
+/* Cards */
+.card {
+  background: #1a1a1a;
+  border: 1px solid rgba(0, 255, 200, 0.15);
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 6px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  border-color: #7fd4ff;
+  box-shadow: 0 0 12px rgba(127, 212, 255, 0.15);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #8affc1;
+}
+
+/* Typography */
+h1 {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  color: #e6e6e6;
+}
+
+h2 {
+  color: #8affc1;
+}
+
+.lead {
+  font-size: 1.2rem;
+  color: #cccccc;
+  margin-bottom: 25px;
+}
+
+/* Tag badge */
+.tag {
+  display: inline-block;
+  background: rgba(0, 255, 200, 0.08);
+  border: 1px solid rgba(0, 255, 200, 0.25);
+  color: #7fd4ff;
+  font-size: 0.8rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+/* Meta info */
+.meta {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+/* Code / pre */
+pre, code {
+  font-family: 'Courier New', monospace;
+}
+
+pre.manifest {
+  background: #05070d;
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(0, 255, 200, 0.15);
+  overflow-x: auto;
+  font-size: 0.9rem;
+  margin-top: 2.5rem;
+  color: #b0f0d0;
+}
+
+/* Footer */
+.footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 255, 200, 0.15);
+  font-size: 0.9rem;
+  color: #999999;
+}
+
+/* Grid (product matrix) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.grid .card {
+  background: #11151f;
+  padding: 1.4rem;
+  border-radius: 10px;
+  border: 1px solid #1f2633;
+  margin-bottom: 0;
+}
+
+.grid .card:hover {
+  border-color: #7fd4ff;
+  box-shadow: 0 0 12px rgba(127, 212, 255, 0.2);
+}
+
+.grid .card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #e6e6e6;
+}
+
+.grid .card p {
+  opacity: 0.85;
+  margin-bottom: 0.8rem;
+}
