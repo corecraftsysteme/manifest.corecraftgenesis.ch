@@ -1,90 +1,697 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Global Product Matrix — GenesisArchive</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/portal.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CoreCraft Genesis | DNSSeed</title>
+
+<style>
+:root{
+    --bg:#05070a;
+    --surface:#090d13;
+    --border:#192331;
+    --blue:#3b82f6;
+    --cyan:#38bdf8;
+    --green:#34d399;
+    --text:#f5f7fa;
+    --muted:#8c99aa;
+    --max:1180px;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:Inter,"Segoe UI",Arial,sans-serif;
+    line-height:1.65;
+    overflow-x:hidden;
+}
+
+a{color:inherit;text-decoration:none}
+
+.container{
+    width:min(92%,var(--max));
+    margin:auto;
+}
+
+/* NAV */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(5,7,10,.88);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border);
+}
+
+nav{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+}
+
+.logo{
+    font-weight:800;
+    letter-spacing:-.03em;
+}
+
+.logo strong{color:var(--blue)}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    color:var(--muted);
+    font-size:.88rem;
+}
+
+.nav-links a:hover{color:white}
+
+/* HERO */
+
+.hero{
+    min-height:800px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    border-bottom:1px solid var(--border);
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:700px;
+    height:700px;
+    right:-230px;
+    top:-250px;
+    background:radial-gradient(circle,rgba(56,189,248,.10),transparent 67%);
+    pointer-events:none;
+}
+
+.hero-inner{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:60px;
+    width:100%;
+}
+
+.label{
+    color:var(--cyan);
+    font-family:monospace;
+    font-size:.75rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    margin-bottom:25px;
+}
+
+h1{
+    font-size:clamp(3.5rem,7vw,7rem);
+    line-height:.93;
+    letter-spacing:-.07em;
+    margin:0 0 30px;
+}
+
+.hero-description{
+    color:var(--muted);
+    font-size:1.12rem;
+    max-width:650px;
+    margin-bottom:35px;
+}
+
+.actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.button{
+    padding:12px 20px;
+    border:1px solid var(--border);
+    border-radius:6px;
+    font-size:.88rem;
+    font-weight:650;
+    transition:.2s;
+}
+
+.button:hover{
+    border-color:var(--cyan);
+    transform:translateY(-2px);
+}
+
+.button-primary{
+    background:var(--blue);
+    border-color:var(--blue);
+}
+
+/* GENESIS VISUAL */
+
+.genesis-visual{
+    position:relative;
+    width:500px;
+    height:500px;
+    max-width:100%;
+    margin:auto;
+}
+
+.orbit{
+    position:absolute;
+    border:1px solid rgba(56,189,248,.17);
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.orbit-1{
+    width:180px;
+    height:180px;
+    animation:spin 13s linear infinite;
+}
+
+.orbit-2{
+    width:300px;
+    height:300px;
+    animation:spinReverse 24s linear infinite;
+}
+
+.orbit-3{
+    width:430px;
+    height:430px;
+    animation:spin 40s linear infinite;
+}
+
+.orbit::before{
+    content:"";
+    position:absolute;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--cyan);
+    top:-4px;
+    left:50%;
+    box-shadow:0 0 18px var(--cyan);
+}
+
+.genesis-core{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:115px;
+    height:115px;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+        radial-gradient(circle at 40% 35%,#7dd3fc,#2563eb 38%,#071525 72%);
+    box-shadow:
+        0 0 30px rgba(56,189,248,.5),
+        0 0 100px rgba(59,130,246,.23);
+    animation:corePulse 3s ease-in-out infinite;
+    z-index:5;
+}
+
+.genesis-core::after{
+    content:"GENESIS";
+    font-family:monospace;
+    font-size:.62rem;
+    letter-spacing:.12em;
+}
+
+.pulse{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:115px;
+    height:115px;
+    border:1px solid var(--cyan);
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+    animation:signal 3s ease-out infinite;
+}
+
+.pulse-2{animation-delay:1s}
+.pulse-3{animation-delay:2s}
+
+.node{
+    position:absolute;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 15px rgba(52,211,153,.9);
+}
+
+.node::after{
+    content:attr(data-label);
+    position:absolute;
+    left:18px;
+    top:-6px;
+    color:var(--muted);
+    white-space:nowrap;
+    font-family:monospace;
+    font-size:.58rem;
+}
+
+.n1{top:9%;left:43%}
+.n2{top:32%;right:5%}
+.n3{bottom:14%;right:19%}
+.n4{bottom:10%;left:23%}
+.n5{top:31%;left:5%}
+
+.network-svg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+}
+
+.network-line{
+    stroke:rgba(56,189,248,.25);
+    stroke-width:1;
+    stroke-dasharray:5 7;
+    animation:dash 12s linear infinite;
+}
+
+/* STATUS */
+
+.status-strip{
+    border-bottom:1px solid var(--border);
+}
+
+.status-inner{
+    min-height:90px;
+    display:flex;
+    align-items:center;
+    gap:35px;
+    flex-wrap:wrap;
+    font-family:monospace;
+    font-size:.72rem;
+    color:var(--muted);
+}
+
+.online{
+    color:var(--green);
+}
+
+.status-inner strong{color:#d4deea}
+
+/* CONTENT */
+
+section{padding:105px 0}
+
+.section-code{
+    font-family:monospace;
+    font-size:.72rem;
+    color:var(--blue);
+    letter-spacing:.12em;
+}
+
+h2{
+    font-size:clamp(2.3rem,5vw,4.3rem);
+    line-height:1.03;
+    letter-spacing:-.05em;
+    margin:15px 0 20px;
+}
+
+.lead{
+    color:var(--muted);
+    max-width:760px;
+    margin-bottom:45px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border-top:1px solid var(--border);
+    border-left:1px solid var(--border);
+}
+
+.card{
+    padding:30px;
+    min-height:250px;
+    border-right:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    background:var(--surface);
+}
+
+.card-id{
+    color:var(--blue);
+    font-family:monospace;
+    font-size:.7rem;
+}
+
+.card h3{margin-top:60px}
+
+.card p{
+    color:var(--muted);
+    font-size:.9rem;
+}
+
+.command{
+    background:#020407;
+    border:1px solid var(--border);
+    padding:25px;
+    margin-top:15px;
+}
+
+.command small{
+    display:block;
+    color:var(--muted);
+    margin-bottom:15px;
+    font-family:monospace;
+}
+
+code{
+    color:var(--cyan);
+    word-break:break-all;
+}
+
+.hash{
+    color:var(--cyan);
+    font-family:monospace;
+    font-size:.78rem;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--border);
+    padding:50px 0;
+    color:var(--muted);
+    font-size:.82rem;
+}
+
+/* ANIMATION */
+
+@keyframes spin{
+    from{transform:translate(-50%,-50%) rotate(0deg)}
+    to{transform:translate(-50%,-50%) rotate(360deg)}
+}
+
+@keyframes spinReverse{
+    from{transform:translate(-50%,-50%) rotate(360deg)}
+    to{transform:translate(-50%,-50%) rotate(0deg)}
+}
+
+@keyframes corePulse{
+    0%,100%{
+        transform:translate(-50%,-50%) scale(1);
+    }
+    50%{
+        transform:translate(-50%,-50%) scale(1.07);
+    }
+}
+
+@keyframes signal{
+    0%{
+        opacity:.7;
+        transform:translate(-50%,-50%) scale(1);
+    }
+    100%{
+        opacity:0;
+        transform:translate(-50%,-50%) scale(4);
+    }
+}
+
+@keyframes dash{
+    to{stroke-dashoffset:-120}
+}
+
+@media(prefers-reduced-motion:reduce){
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        scroll-behavior:auto !important;
+    }
+}
+
+@media(max-width:850px){
+    .hero-inner{grid-template-columns:1fr}
+    .hero{padding:90px 0}
+    .genesis-visual{width:400px;height:400px}
+    .grid{grid-template-columns:1fr}
+}
+
+@media(max-width:600px){
+    .nav-links{display:none}
+    .genesis-visual{
+        transform:scale(.76);
+        margin-left:-50px;
+    }
+}
+</style>
 </head>
+
 <body>
-<div id="header"></div>
-<script>
-  fetch("/header.html")
-    .then(r => r.text())
-    .then(h => document.getElementById("header").innerHTML = h);
-</script>
-<div class="wrap">
-  <span class="tag">GenesisArchive</span>
-  <h1>Global Product Matrix</h1>
-  <p>
-    Die Global Product Matrix beschreibt die kanonische Struktur aller Produkt‑
-    und Forschungs‑linien der CoreCraftGenesis‑Plattform.  
-    Sie ist versioniert, audit‑sealed und dient als Referenz für alle
-    nachgelagerten Kataloge, Artefakte und Deployments.
-  </p>
-  <p class="meta">
-    Version: <strong>1.0</strong><br>
-    Authority: <code>manifest.corecraftgenesis.ch</code>
-  </p>
-  <div class="grid">
-    <div class="card">
-      <h3>AudioLabelLayer (ALB‑Serie)</h3>
-      <p>Label‑ und Tagging‑Schicht für Audio. Klassifikatoren, Label‑Pipelines und Annotation‑Modelle.</p>
-      <p class="meta">Kategorie: Audio‑Kognition · Ebene: Label‑Layer</p>
-    </div>
-    <div class="card">
-      <h3>AudioCognitionLayer (G‑Serie)</h3>
-      <p>Generative und kognitive Audio‑Modelle. Semantische Transformation, Synthese und Verstehen.</p>
-      <p class="meta">Kategorie: High‑Level Cognition · Serie: G</p>
-    </div>
-    <div class="card">
-      <h3>CognitiveDSP</h3>
-      <p>Signalverarbeitung mit kognitiven Komponenten. Intelligente Filter, Effekte und Echtzeit‑DSP.</p>
-      <p class="meta">Kategorie: DSP · Fokus: KI‑erweiterte Signalverarbeitung</p>
-    </div>
-    <div class="card">
-      <h3>HyperspaceCognition</h3>
-      <p>Hochdimensionale Embeddings und semantische Räume für Audio‑Daten und Feature‑Spaces.</p>
-      <p class="meta">Kategorie: Embeddings · Fokus: semantische Räume</p>
-    </div>
-    <div class="card">
-      <h3>KI‑AudioCognition</h3>
-      <p>Klassische ML‑Modelle für Audio‑Erkennung, Klassifikation und Feature‑Extraktion.</p>
-      <p class="meta">Kategorie: ML‑Kernmodelle · Fokus: Audio‑Analyse</p>
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/XNxG44Q1WYE?si=9B91LbPj3-2SxGYj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-    <div class="card">
-      <h3>AudioCognitionTools</h3>
-      <p>Tools, SDKs und CLI‑Utilities für Training, Deployment und Evaluation der Audio‑Kognition.</p>
-      <p class="meta">Kategorie: Tooling · Zielgruppe: Developer & Research</p>
-    </div>
-    <div class="card">
-      <h3>CoreCraftSystemsLegacy</h3>
-      <p>Vor‑Genesis‑Systeme und Legacy‑Stacks. Dienen als Referenz und Migrations‑Quelle.</p>
-      <p class="meta">Kategorie: Legacy · Rolle: Archiv & Migration</p>
-    </div>
-    <div class="card">
-      <h3>ProductsCatalog</h3>
-      <p>Meta‑Katalog aller Produktlinien. Einstiegspunkt für Navigation, Dokumentation und Discovery.</p>
-      <p class="meta">Kategorie: Meta‑Layer · Rolle: Master‑Index</p>
-    </div>
-  </div>
-  <h2 style="margin-top:3rem;">Manifest‑Ansicht</h2>
-  <p>
-    Die zugrunde liegende Matrix wird als YAML‑Manifest geführt und kann
-    deterministisch versioniert, signiert und auditiert werden.
-  </p>
-  <pre class="manifest">global_product_matrix:
-  version: 1.0
-  authority: manifest.corecraftgenesis.ch
-  catalogs:
-    - AudioLabelLayer (ALB-Serie)
-    - AudioCognitionLayer (G-Serie)
-    - CognitiveDSP
-    - HyperspaceCognition
-    - KI-AudioCognition
-    - AudioCognitionTools
-    - CoreCraftSystemsLegacy
-    - ProductsCatalog
-  </pre>
+
+<header>
+<div class="container">
+<nav>
+<a class="logo" href="/">
+CORECRAFT <strong>GENESIS</strong>
+</a>
+
+<div class="nav-links">
+<a href="#manifest">Manifest</a>
+<a href="#validation">Validation</a>
+<a href="#integration">Integration</a>
+<a href="#artifacts">Artifacts</a>
 </div>
+</nav>
+</div>
+</header>
+
+<main>
+
+<div class="hero">
+
+<div class="container hero-inner">
+
+<div>
+<div class="label">
+CORECRAFT GENESIS / DNSSEED
+</div>
+
+<h1>
+Origin.<br>
+Witness.<br>
+Seed.
+</h1>
+
+<p class="hero-description">
+Genesis-Infrastruktur für Chain2025.
+Ein definierter Ursprungspunkt für Seed-Identität,
+Hash-Referenzen, Validierung und technische Artefakte.
+</p>
+
+<div class="actions">
+<a href="#manifest" class="button button-primary">
+Open Manifest
+</a>
+
+<a href="#integration" class="button">
+Integration
+</a>
+</div>
+</div>
+
+<!-- ANIMATED GENESIS -->
+
+<div class="genesis-visual">
+
+<svg class="network-svg" viewBox="0 0 500 500" aria-hidden="true">
+<line class="network-line" x1="250" y1="250" x2="215" y2="50"/>
+<line class="network-line" x1="250" y1="250" x2="470" y2="160"/>
+<line class="network-line" x1="250" y1="250" x2="405" y2="425"/>
+<line class="network-line" x1="250" y1="250" x2="120" y2="445"/>
+<line class="network-line" x1="250" y1="250" x2="30" y2="160"/>
+</svg>
+
+<div class="orbit orbit-3"></div>
+<div class="orbit orbit-2"></div>
+<div class="orbit orbit-1"></div>
+
+<div class="pulse"></div>
+<div class="pulse pulse-2"></div>
+<div class="pulse pulse-3"></div>
+
+<div class="genesis-core"></div>
+
+<div class="node n1" data-label="CHAIN2025"></div>
+<div class="node n2" data-label="VALIDATION"></div>
+<div class="node n3" data-label="ECHO 25"></div>
+<div class="node n4" data-label="ARTIFACT"></div>
+<div class="node n5" data-label="DNSSEED"></div>
+
+</div>
+
+</div>
+</div>
+
+<div class="status-strip">
+<div class="container status-inner">
+<span class="online">● GENESIS SEED</span>
+<span>DOMAIN <strong>dnsseed.corecraftgenesis.ch</strong></span>
+<span>CHAIN <strong>Chain2025</strong></span>
+<span>SEAL <strong>Echo 25</strong></span>
+</div>
+</div>
+
+<section id="manifest">
+<div class="container">
+
+<div class="section-code">01 / GENESIS MANIFEST</div>
+
+<h2>The origin reference.</h2>
+
+<p class="lead">
+Der DNSSeed verbindet die Seed-Domain mit der
+Chain2025-Identität und den zugehörigen Genesis-Artefakten.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<span class="card-id">GEN / 001</span>
+<h3>Seed Domain</h3>
+<p>dnsseed.corecraftgenesis.ch</p>
+</div>
+
+<div class="card">
+<span class="card-id">GEN / 002</span>
+<h3>Chain</h3>
+<p>Chain2025</p>
+</div>
+
+<div class="card">
+<span class="card-id">GEN / 003</span>
+<h3>Audit Reference</h3>
+<p>Echo 25</p>
+</div>
+
+</div>
+
+<div class="command">
+<small>GENESIS HASH</small>
+<code>
+4dc59891fad26b8b01b923be807f34f040bd885f1c50be64c3235f81846a88ef
+</code>
+</div>
+
+</div>
+</section>
+
+<section id="validation">
+<div class="container">
+
+<div class="section-code">02 / VALIDATION</div>
+
+<h2>Witness network.</h2>
+
+<p class="lead">
+Die visuelle Node-Struktur stellt die vorgesehenen
+Validierungs- und Referenzpunkte des Genesis-Konzepts dar.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<span class="card-id">VAL / 001</span>
+<h3>Bitcoin</h3>
+<p>Header Hash &amp; Merkle Root Reference</p>
+</div>
+
+<div class="card">
+<span class="card-id">VAL / 002</span>
+<h3>Osmosis</h3>
+<p>Commit &amp; Validator Reference</p>
+</div>
+
+<div class="card">
+<span class="card-id">VAL / 003</span>
+<h3>ChainGPT</h3>
+<p>Model Artifact &amp; Release Reference</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="integration">
+<div class="container">
+
+<div class="section-code">03 / INTEGRATION</div>
+
+<h2>Seed interface.</h2>
+
+<div class="command">
+<small>DNS CHECK</small>
+<code>dig +short dnsseed.corecraftgenesis.ch</code>
+</div>
+
+<div class="command">
+<small>NODE CONFIGURATION</small>
+<code>addnode=dnsseed.corecraftgenesis.ch</code>
+</div>
+
+</div>
+</section>
+
+<section id="artifacts">
+<div class="container">
+
+<div class="section-code">04 / ARTIFACTS</div>
+
+<h2>Genesis artifacts.</h2>
+
+<div class="grid">
+
+<div class="card">
+<span class="card-id">A / 001</span>
+<h3>Chain2025</h3>
+<p>README und technische Dokumentation</p>
+</div>
+
+<div class="card">
+<span class="card-id">A / 002</span>
+<h3>Genesis Manifest</h3>
+<p>Hashes und Referenzinformationen</p>
+</div>
+
+<div class="card">
+<span class="card-id">A / 003</span>
+<h3>Echo 25</h3>
+<p>Audit- und Genesis-Artefakte</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container">
+<strong>CORECRAFT GENESIS</strong><br>
+dnsseed.corecraftgenesis.ch<br><br>
+© 2026 CoreCraft Genesis / Chain2025 / Echo 25
+</div>
+</footer>
+
+</body>
+</html>
