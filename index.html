@@ -448,10 +448,90 @@ footer{
 @media(max-width:600px){
     .nav-links{display:none}
     .genesis-visual{
-        transform:scale(.76);
-        margin-left:-50px;
+}
+}
+
+/* HERO CENTERING PATCH START */
+
+/* Hero-Inhalt von den Seitenraendern loesen */
+.hero .container{
+    width:min(86%,1180px);
+}
+
+/* Text und Visual ausgewogener verteilen */
+.hero-inner{
+    grid-template-columns:minmax(0,1fr) minmax(420px,1fr);
+    justify-content:center;
+    align-items:center;
+    gap:80px;
+}
+
+/* Linken Textblock etwas nach innen ziehen */
+.hero-inner > div:first-child{
+    max-width:650px;
+    justify-self:center;
+    width:100%;
+}
+
+/* Genesis-Grafik exakt in ihrer Spalte zentrieren */
+.genesis-visual{
+    justify-self:center;
+    margin-inline:auto;
+}
+
+/* sehr grosse Displays */
+@media(min-width:1400px){
+    .hero .container{
+        width:min(82%,1180px);
     }
 }
+
+/* Tablet */
+@media(max-width:850px){
+    .hero .container{
+        width:min(90%,720px);
+    }
+
+    .hero-inner{
+        grid-template-columns:1fr;
+        gap:55px;
+    }
+
+    .hero-inner > div:first-child{
+        justify-self:center;
+        text-align:center;
+    }
+
+    .hero-description{
+        margin-inline:auto;
+    }
+
+    .actions{
+        justify-content:center;
+    }
+
+    .genesis-visual{
+        margin-inline:auto;
+    }
+}
+
+/* Smartphone */
+@media(max-width:600px){
+    .hero .container{
+        width:100%;
+        padding-inline:24px;
+    }
+
+    .genesis-visual{
+        width:340px;
+        height:340px;
+        max-width:100%;
+        transform:none;
+        margin-inline:auto;
+    }
+}
+
+/* HERO CENTERING PATCH END */
 </style>
 </head>
 
