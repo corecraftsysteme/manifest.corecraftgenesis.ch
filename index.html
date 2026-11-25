@@ -532,6 +532,86 @@ footer{
 }
 
 /* HERO CENTERING PATCH END */
+
+/* CHAIN2025 DEPARTMENTS START */
+.department-card{
+    display:flex;
+    min-width:0;
+    min-height:310px;
+    flex-direction:column;
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background-color .2s ease;
+}
+
+.department-card:hover{
+    transform:translateY(-4px);
+    border-color:var(--cyan);
+    background:#0b1119;
+}
+
+.department-card:focus-visible{
+    outline:3px solid var(--cyan);
+    outline-offset:4px;
+}
+
+.department-link,
+.department-status{
+    display:block;
+    margin-top:auto;
+    padding-top:24px;
+    color:var(--cyan);
+    font-family:monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+}
+
+.department-status{
+    color:var(--muted);
+}
+/* CHAIN2025 DEPARTMENTS END */
+
+/* CHAIN2025 DEPARTMENTS START */
+.department-card{
+    display:flex;
+    min-width:0;
+    min-height:310px;
+    flex-direction:column;
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background-color .2s ease;
+}
+
+.department-card:hover{
+    transform:translateY(-4px);
+    border-color:var(--cyan);
+    background:#0b1119;
+}
+
+.department-card:focus-visible{
+    outline:3px solid var(--cyan);
+    outline-offset:4px;
+}
+
+.department-link,
+.department-status{
+    display:block;
+    margin-top:auto;
+    padding-top:24px;
+    color:var(--cyan);
+    font-family:monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+}
+
+.department-status{
+    color:var(--muted);
+}
+/* CHAIN2025 DEPARTMENTS END */
 </style>
 </head>
 
@@ -549,6 +629,8 @@ CORECRAFT <strong>GENESIS</strong>
 <a href="#validation">Validation</a>
 <a href="#integration">Integration</a>
 <a href="#artifacts">Artifacts</a>
+<a href="#departments">Departments</a>
+<a href="#departments">Departments</a>
 </div>
 </nav>
 </div>
@@ -762,6 +844,123 @@ Validierungs- und Referenzpunkte des Genesis-Konzepts dar.
 
 </div>
 </section>
+
+
+<!-- CHAIN2025 DEPARTMENTS START -->
+<section id="departments">
+<div class="container">
+
+<div class="section-code">05 / CHAIN2025 DEPARTMENTS</div>
+
+<h2>Research architecture.</h2>
+
+<p class="lead">
+Chain2025 verbindet Genesis, digitale Commodities, Blockchain-Forschung,
+Raumfahrtwirtschaft, Infrastruktur, Ressourcen, Wissenschaft,
+Netzwerkentwicklung und verifizierbare Audit-Strukturen in einem
+gemeinsamen Forschungsmodell.
+</p>
+
+<div class="grid">
+
+<a class="card department-card" href="/00_genesis/">
+<span class="card-id">DEPT / 00</span>
+<h3>GENESIS</h3>
+<p>
+Manifest, Identity, Integrity, Provenance, Network Definition
+und Witness-Strukturen.
+</p>
+<span class="department-link">Open Department &rarr;</span>
+</a>
+
+<a class="card department-card" href="/01_commodity-matrix/">
+<span class="card-id">DEPT / 01</span>
+<h3>COMMODITY MATRIX</h3>
+<p>
+Klassifikation digitaler Commodities, physischer Ressourcen,
+Forschungszustände und wirtschaftlicher Referenzmodelle.
+</p>
+<span class="department-link">Open Department &rarr;</span>
+</a>
+
+<a class="card department-card" href="/02_blockchain-matrix/">
+<span class="card-id">DEPT / 02</span>
+<h3>BLOCKCHAIN MATRIX</h3>
+<p>
+Bitcoin, Ethereum, Solana und Cosmos als spezialisierte
+Forschungs- und Integrationsschichten.
+</p>
+<span class="department-link">Open Department &rarr;</span>
+</a>
+
+<a class="card department-card" href="/03_space-economy/">
+<span class="card-id">DEPT / 03</span>
+<h3>SPACE ECONOMY</h3>
+<p>
+Tourismus, Kommunikation, Navigation, Logistik, Märkte,
+Finanzierung, Daten und kommerzielle Raumfahrtdienste.
+</p>
+<span class="department-link">Open Department &rarr;</span>
+</a>
+
+<a class="card department-card" href="/04_space-infrastructure/">
+<span class="card-id">DEPT / 04</span>
+<h3>SPACE INFRASTRUCTURE</h3>
+<p>
+Raumschiffe, Stationen, Habitate, Konstruktion, Energieversorgung
+und Bodeninfrastruktur.
+</p>
+<span class="department-link">Open Department &rarr;</span>
+</a>
+
+<a class="card department-card" href="/05_space-resources/">
+<span class="card-id">DEPT / 05</span>
+<h3>SPACE RESOURCES</h3>
+<p>
+Exploration, Ressourcengewinnung, Verarbeitung,
+Fertigung und Commodity-Klassifikation.
+</p>
+<span class="department-link">Open Department &rarr;</span>
+</a>
+
+<a class="card department-card" href="/06_research/">
+<span class="card-id">DEPT / 06</span>
+<h3>RESEARCH</h3>
+<p>
+Physik, Materialien, Antrieb, Automatisierung,
+Mikrogravitation und wirtschaftliche Modelle.
+</p>
+<span class="department-link">Open Department &rarr;</span>
+</a>
+
+<a class="card department-card" href="/07_chain2025-network/">
+<span class="card-id">DEPT / 07</span>
+<h3>CHAIN2025 NETWORK</h3>
+<p>
+P2P-Protokoll, Forschungs-Nodes, Netzwerkparameter
+und Port 52025/TCP.
+</p>
+<span class="department-status">RESERVED / NOT DEPLOYED</span>
+</a>
+
+<a class="card department-card" href="/08_echo-25/">
+<span class="card-id">DEPT / 08</span>
+<h3>ECHO 25</h3>
+<p>
+Audit, Witness, Verification, technische Nachweise
+und nachvollziehbare Forschungsreferenzen.
+</p>
+<span class="department-link">Open Department &rarr;</span>
+</a>
+
+</div>
+
+</div>
+</section>
+<!-- CHAIN2025 DEPARTMENTS END -->
+
+
+
 
 </main>
 
