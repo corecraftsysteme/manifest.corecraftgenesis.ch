@@ -5,12 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Research Systems | Chain2025 | CoreCraft Genesis</title>
+<meta name="description" content="Public Research Systems within the Chain2025 research architecture by CoreCraft Genesis.">
 
 <style>
 :root{
     --bg:#05070a;
     --surface:#090d13;
     --surface-hover:#0c121b;
+    --experimental:#0d0a15;
+    --frontier:#07110f;
     --border:#192331;
     --blue:#3b82f6;
     --cyan:#38bdf8;
@@ -35,6 +38,7 @@ body{
     color:var(--text);
     font-family:Inter,"Segoe UI",Arial,sans-serif;
     line-height:1.65;
+    overflow-x:hidden;
 }
 
 a{
@@ -83,6 +87,12 @@ nav{
 
 .back:hover{
     color:var(--cyan);
+}
+
+.back:focus-visible,
+.card:focus-visible{
+    outline:3px solid var(--cyan);
+    outline-offset:4px;
 }
 
 /* HERO */
@@ -148,10 +158,11 @@ h1{
     color:var(--green);
 }
 
-/* RESEARCH GRID */
+/* SECTIONS */
 
 section{
     padding:100px 0;
+    border-bottom:1px solid var(--border);
 }
 
 .section-title{
@@ -166,10 +177,12 @@ section{
 }
 
 .section-title p{
-    max-width:760px;
+    max-width:780px;
     margin:0;
     color:var(--muted);
 }
+
+/* GRID */
 
 .grid{
     display:grid;
@@ -197,11 +210,6 @@ section{
     transform:translateY(-4px);
     border-color:var(--cyan);
     background:var(--surface-hover);
-}
-
-.card:focus-visible{
-    outline:3px solid var(--cyan);
-    outline-offset:4px;
 }
 
 .card-id{
@@ -241,6 +249,90 @@ section{
     text-transform:uppercase;
 }
 
+/* EXPERIMENTAL */
+
+.experimental-section{
+    background:
+        linear-gradient(
+            180deg,
+            rgba(139,92,246,.035),
+            transparent
+        );
+}
+
+.experimental-section .code,
+.experimental-section .card-link{
+    color:#a78bfa;
+}
+
+.experimental-section .card{
+    background:var(--experimental);
+}
+
+.experimental-section .tag{
+    color:#a78bfa;
+}
+
+/* FRONTIER */
+
+.frontier-section{
+    background:
+        linear-gradient(
+            180deg,
+            rgba(52,211,153,.035),
+            transparent
+        );
+}
+
+.frontier-section .code,
+.frontier-section .card-link{
+    color:var(--green);
+}
+
+.frontier-section .card{
+    background:var(--frontier);
+}
+
+.frontier-section .tag{
+    color:var(--green);
+}
+
+/* FEATURE GRID */
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:minmax(0,2fr) minmax(260px,1fr);
+    border:1px solid var(--border);
+}
+
+.feature-grid .card{
+    border:0;
+    min-height:380px;
+}
+
+.feature-info{
+    padding:30px;
+    border-left:1px solid var(--border);
+    color:var(--muted);
+}
+
+.feature-info strong{
+    display:block;
+    margin-bottom:20px;
+    color:var(--text);
+    font-family:monospace;
+    font-size:.75rem;
+    letter-spacing:.08em;
+}
+
+.feature-info span{
+    display:block;
+    padding:10px 0;
+    border-bottom:1px solid var(--border);
+    font-family:monospace;
+    font-size:.72rem;
+}
+
 /* NOTICE */
 
 .notice{
@@ -268,7 +360,6 @@ section{
 
 footer{
     padding:50px 0;
-    border-top:1px solid var(--border);
     color:var(--muted);
     font-size:.82rem;
 }
@@ -279,11 +370,24 @@ footer{
     .grid{
         grid-template-columns:repeat(2,minmax(0,1fr));
     }
+
+    .feature-grid{
+        grid-template-columns:1fr;
+    }
+
+    .feature-info{
+        border-left:0;
+        border-top:1px solid var(--border);
+    }
 }
 
 @media(max-width:620px){
     .hero{
         padding:100px 0 80px;
+    }
+
+    h1{
+        font-size:clamp(3rem,16vw,5rem);
     }
 
     .grid{
@@ -293,6 +397,10 @@ footer{
     .card{
         min-height:290px;
     }
+
+    section{
+        padding:75px 0;
+    }
 }
 </style>
 </head>
@@ -301,6 +409,7 @@ footer{
 
 <header>
 <div class="container">
+
 <nav>
 
 <a class="logo" href="/">
@@ -312,12 +421,14 @@ CORECRAFT <strong>GENESIS</strong>
 </a>
 
 </nav>
+
 </div>
 </header>
 
 <main>
 
 <div class="hero">
+
 <div class="container">
 
 <div class="code">
@@ -332,21 +443,37 @@ Research.
 
 <p>
 Öffentliche Forschungsprogramme innerhalb der Chain2025-Architektur.
-Diese Ebene verbindet experimentelle Systeme, Simulation, künstliche
-Intelligenz, Robotik, audiovisuelle Forschung und langfristige
-Frontier-Konzepte.
+Die Forschungslandschaft verbindet experimentelle Systeme,
+Simulation, künstliche Intelligenz, Robotik, digitale Modelle,
+Hardware, Mobilität und Mensch-Maschine-Systeme.
 </p>
 
 <div class="status">
-<span>ACCESS <strong>PUBLIC RESEARCH</strong></span>
-<span>PROGRAMS <strong>11</strong></span>
-<span>NETWORK <strong>CHAIN2025</strong></span>
+
+<span>
+ACCESS
+<strong>PUBLIC RESEARCH</strong>
+</span>
+
+<span>
+PROGRAMS
+<strong>17</strong>
+</span>
+
+<span>
+NETWORK
+<strong>CHAIN2025</strong>
+</span>
+
 </div>
 
 </div>
 </div>
 
-<section>
+<!-- PUBLIC RESEARCH -->
+
+<section id="public-research">
+
 <div class="container">
 
 <div class="section-title">
@@ -358,9 +485,8 @@ PUBLIC RESEARCH PROGRAMS
 <h2>Research systems.</h2>
 
 <p>
-Jeder Bereich besitzt eine eigene öffentliche Forschungsstruktur.
-Vertrauliche, patentkritische und nicht freigegebene technische
-Informationen gehören nicht in diese öffentliche Ebene.
+Öffentliche Forschungsprogramme und freigegebene
+Systemkonzepte innerhalb der Chain2025-Architektur.
 </p>
 
 </div>
@@ -371,8 +497,8 @@ Informationen gehören nicht in diese öffentliche Ebene.
 <span class="card-id">RS / 01</span>
 <h3>BIFROST</h3>
 <p>
-Forschungsprogramm für Verbindungs-, Transit- und
-Brückenmodelle innerhalb verteilter Systeme.
+Verbindungs-, Transit- und Brückenmodelle
+innerhalb verteilter Systeme.
 </p>
 <span class="tag">PUBLIC RESEARCH</span>
 <span class="card-link">Open Research &rarr;</span>
@@ -382,8 +508,8 @@ Brückenmodelle innerhalb verteilter Systeme.
 <span class="card-id">RS / 02</span>
 <h3>ATLANTIS</h3>
 <p>
-Forschung zu Habitat-, Infrastruktur- und langfristigen
-Zivilisationsmodellen.
+Habitat-, Infrastruktur- und langfristige
+Zivilisationsmodelle.
 </p>
 <span class="tag">PUBLIC RESEARCH</span>
 <span class="card-link">Open Research &rarr;</span>
@@ -393,7 +519,7 @@ Zivilisationsmodellen.
 <span class="card-id">RS / 03</span>
 <h3>ORBITAL DISTRICT</h3>
 <p>
-Modelle für orbitale Siedlungen, Infrastruktur,
+Orbitale Siedlungen, Infrastruktur,
 Dienstleistungen und wirtschaftliche Systeme.
 </p>
 <span class="tag">PUBLIC RESEARCH</span>
@@ -404,10 +530,10 @@ Dienstleistungen und wirtschaftliche Systeme.
 <span class="card-id">RS / 04</span>
 <h3>HYPERSPACE</h3>
 <p>
-Öffentliche Forschung zu zukünftigen Raum-, Transport-,
-Kommunikations- und theoretischen Systemmodellen.
+Zukünftige Raum-, Transport-, Kommunikations-
+und theoretische Systemmodelle.
 </p>
-<span class="tag">EXPERIMENTAL RESEARCH</span>
+<span class="tag">PUBLIC RESEARCH</span>
 <span class="card-link">Open Research &rarr;</span>
 </a>
 
@@ -415,8 +541,8 @@ Kommunikations- und theoretischen Systemmodellen.
 <span class="card-id">RS / 05</span>
 <h3>AUDIO SYSTEMS</h3>
 <p>
-DSP, Spatial Audio, Signal Processing, Space Ambient
-und akustische Umgebungsforschung.
+DSP, Spatial Audio, Signal Processing,
+Space Ambient und akustische Umgebungen.
 </p>
 <span class="tag">PUBLIC RESEARCH</span>
 <span class="card-link">Open Research &rarr;</span>
@@ -426,8 +552,8 @@ und akustische Umgebungsforschung.
 <span class="card-id">RS / 06</span>
 <h3>SIMULATION</h3>
 <p>
-Simulation von orbitalen, wirtschaftlichen,
-technischen und ressourcenbezogenen Systemen.
+Simulation orbitaler, wirtschaftlicher,
+technischer und ressourcenbezogener Systeme.
 </p>
 <span class="tag">PUBLIC RESEARCH</span>
 <span class="card-link">Open Research &rarr;</span>
@@ -437,8 +563,8 @@ technischen und ressourcenbezogenen Systemen.
 <span class="card-id">RS / 07</span>
 <h3>ARTIFICIAL INTELLIGENCE</h3>
 <p>
-Forschung zu autonomen Systemen, Research Intelligence
-und intelligenten Entscheidungsmodellen.
+Autonome Systeme, Research Intelligence
+und intelligente Entscheidungsmodelle.
 </p>
 <span class="tag">PUBLIC RESEARCH</span>
 <span class="card-link">Open Research &rarr;</span>
@@ -448,8 +574,8 @@ und intelligenten Entscheidungsmodellen.
 <span class="card-id">RS / 08</span>
 <h3>ROBOTICS</h3>
 <p>
-Autonome Robotik für Exploration, Konstruktion,
-Wartung und Ressourcenprozesse.
+Autonome Robotik für Exploration,
+Konstruktion, Wartung und Ressourcenprozesse.
 </p>
 <span class="tag">PUBLIC RESEARCH</span>
 <span class="card-link">Open Research &rarr;</span>
@@ -459,44 +585,235 @@ Wartung und Ressourcenprozesse.
 <span class="card-id">RS / 09</span>
 <h3>HUMAN SYSTEMS</h3>
 <p>
-Forschung zu Human Factors, Habitaten,
-Lebensunterstützung und Mensch-System-Interaktion.
+Human Factors, Habitate, Lebensunterstützung
+und Mensch-System-Interaktion.
 </p>
 <span class="tag">PUBLIC RESEARCH</span>
 <span class="card-link">Open Research &rarr;</span>
 </a>
 
-<a class="card" href="./experimental-systems/">
-<span class="card-id">RS / 10</span>
-<h3>EXPERIMENTAL SYSTEMS</h3>
+<a class="card" href="./automotive/">
+<span class="card-id">RS / 12</span>
+<h3>AUTOMOTIVE</h3>
 <p>
-Öffentliche Dokumentation experimenteller,
-prototypischer und interdisziplinärer Systeme.
+Zukünftige Mobilitätssysteme, Fahrzeugarchitekturen,
+vernetzte Plattformen und technische Integration.
 </p>
-<span class="tag">EXPERIMENTAL RESEARCH</span>
+<span class="tag">PUBLIC RESEARCH</span>
 <span class="card-link">Open Research &rarr;</span>
 </a>
 
-<a class="card" href="./frontier-research/">
-<span class="card-id">RS / 11</span>
-<h3>FRONTIER RESEARCH</h3>
+<a class="card" href="./virtual-reality/">
+<span class="card-id">RS / 13</span>
+<h3>VIRTUAL REALITY</h3>
 <p>
-Langfristige Forschung zu fortgeschrittener Raumfahrt,
-Energiesystemen, Materialien und theoretischen Modellen.
+Virtuelle Umgebungen, räumliche Interaktion,
+Simulation und immersive Forschungsoberflächen.
 </p>
-<span class="tag">FRONTIER RESEARCH</span>
+<span class="tag">PUBLIC RESEARCH</span>
+<span class="card-link">Open Research &rarr;</span>
+</a>
+
+<a class="card" href="./hardware-systems/">
+<span class="card-id">RS / 14</span>
+<h3>HARDWARE SYSTEMS</h3>
+<p>
+Hardware-Architekturen, Geräte,
+Steuerungssysteme und Systemintegration.
+</p>
+<span class="tag">PUBLIC RESEARCH</span>
+<span class="card-link">Open Research &rarr;</span>
+</a>
+
+<a class="card" href="./digital-twins/">
+<span class="card-id">RS / 15</span>
+<h3>DIGITAL TWINS</h3>
+<p>
+Digitale Repräsentationen physischer und
+virtueller Systeme für Simulation und Analyse.
+</p>
+<span class="tag">PUBLIC RESEARCH</span>
+<span class="card-link">Open Research &rarr;</span>
+</a>
+
+<a class="card" href="./autonomous-systems/">
+<span class="card-id">RS / 16</span>
+<h3>AUTONOMOUS SYSTEMS</h3>
+<p>
+Autonome Plattformen, Entscheidungsprozesse,
+Koordination und selbstständig operierende Systeme.
+</p>
+<span class="tag">PUBLIC RESEARCH</span>
+<span class="card-link">Open Research &rarr;</span>
+</a>
+
+<a class="card" href="./human-machine-interfaces/">
+<span class="card-id">RS / 17</span>
+<h3>HUMAN-MACHINE INTERFACES</h3>
+<p>
+Schnittstellen zwischen Menschen, Maschinen,
+digitalen Systemen und interaktiven Umgebungen.
+</p>
+<span class="tag">PUBLIC RESEARCH</span>
 <span class="card-link">Open Research &rarr;</span>
 </a>
 
 </div>
 
-<div class="notice">
-<strong>PUBLIC DISCLOSURE BOUNDARY</strong>
+</div>
+</section>
+
+<!-- EXPERIMENTAL SYSTEMS -->
+
+<section
+    id="experimental-systems"
+    class="experimental-section"
+>
+
+<div class="container">
+
+<div class="section-title">
+
+<div class="code">
+RS / 10 / EXPERIMENTAL SYSTEMS
+</div>
+
+<h2>Prototype research.</h2>
+
 <p>
-Diese öffentliche Ebene enthält nur freigegebene Forschungsinformationen.
-Vertrauliche technische Details und mögliche Patentkandidaten werden hier
-nicht veröffentlicht.
+Eigenständige öffentliche Forschungszone für experimentelle,
+prototypische und interdisziplinäre Systeme.
 </p>
+
+</div>
+
+<div class="feature-grid">
+
+<a
+    class="card"
+    href="./experimental-systems/"
+>
+
+<span class="card-id">
+RS / 10
+</span>
+
+<h3>
+EXPERIMENTAL SYSTEMS
+</h3>
+
+<p>
+Experimentelle Systeme, Prototypen und neue technische
+Forschungsmodelle innerhalb der Chain2025-Architektur.
+</p>
+
+<span class="tag">
+EXPERIMENTAL RESEARCH
+</span>
+
+<span class="card-link">
+Open Experimental Research &rarr;
+</span>
+
+</a>
+
+<div class="feature-info">
+
+<strong>RESEARCH CLASS</strong>
+
+<span>PUBLIC</span>
+<span>EXPERIMENTAL</span>
+<span>PROTOTYPE SYSTEMS</span>
+<span>INTERDISCIPLINARY</span>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- FRONTIER RESEARCH -->
+
+<section
+    id="frontier-research"
+    class="frontier-section"
+>
+
+<div class="container">
+
+<div class="section-title">
+
+<div class="code">
+RS / 11 / FRONTIER RESEARCH
+</div>
+
+<h2>Beyond established systems.</h2>
+
+<p>
+Eigenständige öffentliche Forschungszone für langfristige,
+grenzüberschreitende und theoretische Forschungsfelder.
+</p>
+
+</div>
+
+<div class="feature-grid">
+
+<a
+    class="card"
+    href="./frontier-research/"
+>
+
+<span class="card-id">
+RS / 11
+</span>
+
+<h3>
+FRONTIER RESEARCH
+</h3>
+
+<p>
+Langfristige Forschung zu fortgeschrittener Raumfahrt,
+Energiesystemen, Materialien, Infrastruktur und
+theoretischen Systemmodellen.
+</p>
+
+<span class="tag">
+FRONTIER RESEARCH
+</span>
+
+<span class="card-link">
+Open Frontier Research &rarr;
+</span>
+
+</a>
+
+<div class="feature-info">
+
+<strong>RESEARCH CLASS</strong>
+
+<span>PUBLIC</span>
+<span>LONG-HORIZON</span>
+<span>THEORETICAL</span>
+<span>FRONTIER SYSTEMS</span>
+
+</div>
+
+</div>
+
+<div class="notice">
+
+<strong>
+PUBLIC DISCLOSURE BOUNDARY
+</strong>
+
+<p>
+Diese öffentliche Ebene enthält ausschließlich freigegebene
+Forschungsinformationen. Vertrauliche technische Details,
+nicht freigegebene Entwicklungsinformationen und mögliche
+Patentkandidaten werden hier nicht veröffentlicht.
+</p>
+
 </div>
 
 </div>
@@ -505,14 +822,21 @@ nicht veröffentlicht.
 </main>
 
 <footer>
+
 <div class="container">
 
-<strong>CORECRAFT GENESIS</strong><br>
-Chain2025 / 09 Research Systems<br><br>
+<strong>
+CORECRAFT GENESIS
+</strong>
+<br>
+
+Chain2025 / 09 Research Systems
+<br><br>
 
 © 2026 CoreCraft Genesis / Chain2025
 
 </div>
+
 </footer>
 
 </body>
